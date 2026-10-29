@@ -1,5 +1,23 @@
 # HotelPro Project Report
 
+## Title page
+
+**Project title:** HotelPro — Hotel Browsing and Booking Application
+
+**Student name:** [Enter your name]
+
+**Enrollment number:** [Enter your enrollment number]
+
+**Course:** [Enter your course]
+
+**University:** [Enter your university]
+
+**Submission date:** 29 October 2026
+
+> Replace the bracketed student/course details before submitting.
+
+---
+
 **Project:** HotelPro hotel browsing and booking application
 **Implementation:** React, Vite, Express, Node.js, MongoDB, and Mongoose
 **Workflow verification date:** 29 October 2026
@@ -265,8 +283,13 @@ Other routes include `GET /api/auth/me`, `GET /api/auth/admin-test`, and admin-p
 
 - Frontend production build: **passed** with `cd "Front-end/frontend" && npm run build`.
 - Frontend lint: **passed** with `cd "Front-end/frontend" && npm run lint`.
-- Live backend health endpoint: **HTTP 200**.
-- Live hotel list endpoint: **HTTP 200**, one active hotel returned during verification.
+- Backend root health endpoint: **HTTP 200**.
+- `GET /api/hotels`: **HTTP 200**, one active hotel returned.
+- `GET /api/hotels/:id`: **HTTP 200**, hotel detail response present.
+- `GET /api/hotels/not-an-id`: **HTTP 400**, invalid hotel ID rejected.
+- `GET /api/bookings/my` without a token: **HTTP 401**, access rejected.
+- `POST /api/bookings` with malformed date strings and an authenticated request: **HTTP 400**, date format rejected.
+- Source and ZIP audit: no real `.env` files, MongoDB URIs, JWT values, or test passwords included.
 
 ### Live browser workflow
 
@@ -275,11 +298,13 @@ All four requested workflow checks were run in the browser against the local fro
 | Check | Result | Observed outcome |
 |---|---|---|
 | Open HotelPro Grand details | Passed | Detail page displayed location, amenities, capacity, and nightly price. |
-| Register and log in | Passed | Account registration succeeded; login returned to the site with the authenticated navigation. |
+| Register and log in | Passed | Account registration succeeded; a subsequent login returned to the site with the authenticated navigation and a usable API session. |
 | Create booking | Passed | Booking for 10–12 November 2026 was accepted; success confirmation appeared. |
 | View My Bookings | Passed | The saved HotelPro Grand booking appeared as `confirmed` for 1 guest with listed total 5,000. |
 
 The browser run created a workflow test account and a booking record in the connected development database. The test password and JWT are intentionally not included in this report.
+
+**Final checklist:** 13/13 requested checks passed across the frontend, backend, and security/validation checks listed above.
 
 ### Browser screenshots
 

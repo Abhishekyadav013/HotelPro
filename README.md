@@ -9,19 +9,19 @@ HotelPro is a MERN hotel browsing and booking application. Guests can browse act
 
 ## Configuration
 
-Create `Back-end/.env` with the backend settings below. Keep this file local and do not commit credentials or secrets.
+Copy `Back-end/.env.example` to `Back-end/.env`, then set the backend values. Keep `.env` local and do not commit credentials or secrets.
 
-```env
-PORT=5001
-MONGODB_URI=<your MongoDB connection string>
-JWT_SECRET=<a long random secret>
-JWT_EXPIRES_IN=1d
-CLIENT_URL=http://localhost:5173
-# Optional, only if using Back-end/resetTestPassword.js:
-TEST_USER_PASSWORD=<new password for the test account>
+```sh
+cp Back-end/.env.example Back-end/.env
 ```
 
-The frontend reads the API base URL from `Front-end/frontend/.env.local`. Start from the example:
+The frontend reads the API base URL from `Front-end/frontend/.env.local`. Copy the example:
+
+```sh
+cp Front-end/frontend/.env.example Front-end/frontend/.env.local
+```
+
+Set this value in `.env.local`:
 
 ```env
 VITE_API_URL=http://localhost:5001/api
